@@ -17,7 +17,7 @@ const timer = setInterval(function () {
 
     //timeLeft = 0; //Use it to test the end of the timer.
     if (timeLeft > 0) {
-
+        playSound();
         timerElement.innerHTML = `<h1>${getTimeFromSeconds(timeLeft)}</h1>`;
     } else {
         clearInterval(timer);
@@ -39,4 +39,14 @@ function getTimeFromSeconds(givenSeconds) {
     seconds = Math.floor((givenSeconds - (hours * 3600)) - (minutes * 60));
 
     return `${hours.toString().padStart(2, 0)} : ${minutes.toString().padStart(2, 0)} : ${seconds.toString().padStart(2, 0)}`;
+}
+
+
+/**
+ * ### soundPath
+ *
+ */
+function playSound() {
+    const sound = new Audio('./assets/sounds/beep.mp3');
+    sound.play();
 }
